@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link rel = "stylesheet" href="style.css"/>
+</head>
+<body>      
+    <!--<h2 id="iss-data">Loading ISS Data...</h2>    (old placeholder code)-->
+    <!-- Leaflet JS (used for rendering in the map)-->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!--Leaflet Terminator (used for rendering in the day/night cycles)-->
+    <script src="https://unpkg.com/@joergdietrich/leaflet.terminator"></script>
+    <!-- Used for making the trail lines curved -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.geodesic"></script>
+    <!-- Used to drag things around-->
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <!--Elements-->
+    <div id="top-bar">
+        <h1 id="page-title">ISS Tracker</h1>
+        <img src="images/nasa-1-logo-png-transparent.png"  id = "NASALogo"/>
+        <div id="user-input-panel">
+            <h3>Track from your location</h3>
+                <label>Latitude: <input type="number" id="user-lat" step="any"></label><br>
+                <label>Longitude: <input type="number" id="user-lon" step="any"></label><br>
+                <button id="set-location">Set Location</button>
+                <p id="distance-info">Distance to ISS: --</p>
+        </div>
+    </div>
+    <div id = "data-panel">
+        <p><strong>Latitude:</strong> <span id="lat"></span></p>
+        <p><strong>Longitude:</strong> <span id="long"></span></p>
+        <p><strong>Altitude:</strong> <span id="alt"></span></p>
+        <p><strong>Velocity:</strong> <span id="vel"></span></p>
+        <p><strong>Visibilty:</strong> <span id="vis"></span></p>
+        <p><strong>Last Updated:</strong> <span id="last-upd"></span></p>
+        <button id="toggle-terminator">Toggle Day/Night</button>
+    </div>
+    <div id = "LiveISS">
+        <h3>ISS Live Stream</h3>
+        <iframe 
+            width="320" 
+            height="180" 
+            src="https://www.youtube.com/embed/DIgkvm2nmHc?si=MB_Y3z3Ymk78-LuA"frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+        </iframe>
+    </div>
+    <div id="map"></div>
+    <div id="credits">
+        Finished 6/4/2025 <br> <br>
+        By: Luis Navarrete <br> <br>
+        <br> <br>
+        <img src="images/University-of-Illinois_CS.png" id = "UIUCLogo"/>
+    <!--keep src at the end of body to ensure html loads in before js runs-->
+    <script src="main.js"></script>
+</body>
+</html>
